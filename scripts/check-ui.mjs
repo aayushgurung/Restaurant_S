@@ -1,6 +1,9 @@
 import { chromium } from "@playwright/test";
 import assert from "node:assert/strict";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
+const expectedMenu = JSON.parse(
+  await readFile(new URL("./menu-expectations.json", import.meta.url), "utf8"),
+);
 const base = process.env.TEST_URL || "http://127.0.0.1:3000";
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
@@ -9,10 +12,26 @@ const failedLocalRequests = [];
 page.on("pageerror", (error) => errors.push(error.message));
 page.on("response", (response) => {
   if (response.url().startsWith(base + "/") && response.status() >= 400)
-    failedLocalRequests.push(`${response.status()} ${new URL(response.url()).pathname}`);
+    failedLocalRequests.push(
+      `${response.status()} ${new URL(response.url()).pathname}`,
+    );
 });
 await mkdir("artifacts", { recursive: true });
 try {
+  await page.goto(base);
+  await page.evaluate(() =>
+    localStorage.setItem(
+      "shaswat-cart-v1",
+      JSON.stringify([{ id: "chicken-momo", quantity: 2 }]),
+    ),
+  );
+  await page.reload();
+  await page.waitForLoadState("networkidle");
+  assert.equal(
+    await page.evaluate(() => localStorage.getItem("shaswat-cart-v1")),
+    "[]",
+    "Retired sample dishes are removed from persisted carts",
+  );
   for (const route of [
     "",
     "menu/",
@@ -50,37 +69,105 @@ try {
   await page.goto(base);
   await page.screenshot({ path: "artifacts/home-desktop.png", fullPage: true });
   await page.goto(`${base}/menu/`);
-  await page.getByRole("button", { name: "Momo", exact: true }).click();
-  assert.equal(await page.locator(".menu-item").count(), 3);
-  await page.getByRole("button", { name: "Vegetarian", exact: true }).click();
-  assert.equal(await page.locator(".menu-item").count(), 1);
-  await page.getByRole("searchbox").fill("nothing matches");
-  await page.getByText("No dishes found", { exact: true }).waitFor();
-  await page.getByRole("button", { name: "Clear filters" }).click();
-  assert.equal(await page.locator(".menu-item").count(), 11);
+  assert.equal(await page.locator(".menu-item").count(), 57);
+  const ids = await page
+    .locator(".menu-item")
+    .evaluateAll((items) => items.map((item) => item.dataset.itemId));
+  assert.equal(new Set(ids).size, 57, "All items contains unique products");
+  for (const [section, expected] of Object.entries(expectedMenu)) {
+    await page
+      .getByRole("combobox", { name: "Menu section" })
+      .selectOption(section);
+    const actual = await page
+      .locator(".menu-item-top")
+      .evaluateAll((items) =>
+        items.map((item) => [
+          item.querySelector("h3").textContent,
+          item.querySelector("span").textContent.replace("$", ""),
+        ]),
+      );
+    assert.deepEqual(
+      actual,
+      expected,
+      `Owner-supplied names and prices match in ${section}`,
+    );
+    await page.locator(".menu-item img").evaluateAll((images) =>
+      Promise.all(
+        images.map((img) => {
+          img.loading = "eager";
+          return img.decode();
+        }),
+      ),
+    );
+  }
+  await page
+    .getByRole("combobox", { name: "Menu section" })
+    .selectOption("Featured Items");
+  await page.screenshot({ path: "artifacts/menu-desktop.png", fullPage: true });
   await page
     .getByRole("button", {
-      name: "Add Signature chicken momo to order",
+      name: "Add Ham, Cheese and Tomato Croissant to order",
       exact: true,
     })
     .click();
+  await page.getByRole("button", { name: "Extras", exact: true }).click();
+  await page
+    .getByRole("button", {
+      name: "Add Ham, Cheese and Tomato Croissant to order",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("combobox", { name: "Menu section" })
+    .selectOption("All items");
+  await page.getByRole("searchbox").fill("banana");
+  assert.equal(
+    await page.locator(".menu-item").count(),
+    5,
+    "Ingredient and milkshake searches work across sections",
+  );
+  await page.getByRole("searchbox").fill("nothing matches");
+  await page.getByText("No items found", { exact: true }).waitFor();
+  await page.getByRole("button", { name: "Clear filters" }).click();
+  assert.equal(await page.locator(".menu-item").count(), 57);
   await page.goto(`${base}/order/`);
   await page
     .getByRole("button", {
-      name: "Add one Signature chicken momo",
+      name: "Add one Ham, Cheese and Tomato Croissant",
       exact: true,
     })
     .click();
   assert.equal(
     await page.locator(".cart-total strong").textContent(),
-    "$36.00",
+    "$30.00",
   );
+  assert.equal(
+    await page.locator(".cart-items li").count(),
+    1,
+    "Featured and Extras use one cart line",
+  );
+  await page
+    .getByRole("button", {
+      name: "Remove one Ham, Cheese and Tomato Croissant",
+      exact: true,
+    })
+    .click();
+  for (const name of [
+    "Latte",
+    "Nepalese Chicken Curry with Rice or Naan (half)",
+    "Nepalese Chicken Curry with Rice or Naan (full)",
+  ]) {
+    await page
+      .getByRole("button", { name: `Add ${name} to order`, exact: true })
+      .click();
+  }
+  assert.equal(await page.locator(".cart-items li").count(), 4);
   await page.reload();
   await page.getByLabel("Quantity 2", { exact: true }).waitFor();
   await page.getByRole("button", { name: "Delivery", exact: true }).click();
   assert.equal(
     await page.locator(".cart-total strong").textContent(),
-    "$41.00",
+    "$63.50",
   );
   await page
     .getByRole("button", { name: "Preview checkout", exact: true })
@@ -175,6 +262,25 @@ try {
     }
   }
   await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto(`${base}/menu/`);
+  await page
+    .getByRole("combobox", { name: "Menu section" })
+    .selectOption("Lunch");
+  await page.screenshot({ path: "artifacts/menu-mobile.png", fullPage: true });
+  await page
+    .getByRole("combobox", { name: "Menu section" })
+    .selectOption("Milkshakes");
+  await page
+    .getByRole("button", {
+      name: "Add Vanilla Milkshake to order",
+      exact: true,
+    })
+    .click();
+  await page.goto(`${base}/order/`);
+  await page
+    .getByRole("heading", { name: "Vanilla Milkshake", exact: true })
+    .waitFor();
+  assert.equal(await page.locator(".cart-total strong").textContent(), "$8.00");
   await page.goto(base);
   await page.screenshot({ path: "artifacts/home-mobile.png", fullPage: true });
   await page.getByRole("button", { name: "Open navigation" }).click();
@@ -198,9 +304,13 @@ try {
   );
   await page.waitForLoadState("networkidle");
   assert.deepEqual(errors, [], "No uncaught browser errors");
-  assert.deepEqual(failedLocalRequests, [], "No failed local requests, including navigation prefetches");
+  assert.deepEqual(
+    failedLocalRequests,
+    [],
+    "No failed local requests, including navigation prefetches",
+  );
   console.log(
-    "PASS: 8 routes, menu filters/search, persistent cart, quantity/totals, delivery checkout, 3 forms, gallery keyboard/lightbox, mobile navigation, 4 viewport sizes, reduced motion.",
+    "PASS: all 57 products and 59 section entries/prices, category/search filters, shared featured cart entries, curry portions, persistence, delivery totals, milkshake labels, 8 routes, 3 forms, gallery, mobile navigation, 4 viewport sizes and reduced motion.",
   );
 } finally {
   await browser.close();

@@ -6,7 +6,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { dishes } from "@/lib/menu";
+import { dishes, itemLabel } from "@/lib/menu";
 type CartLine = { id: string; quantity: number };
 type CartContextValue = {
   items: CartLine[];
@@ -68,7 +68,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           )
         : [...current, { id, quantity: 1 }],
     );
-    setNotice(`${dish.name} added to your bag`);
+    setNotice(`${itemLabel(dish)} added to your bag`);
   }
   function change(id: string, delta: number) {
     setItems((current) =>

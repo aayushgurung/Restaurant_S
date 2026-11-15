@@ -27,9 +27,6 @@ export function DishCard({ dish, index }: { dish: Dish; index: number }) {
         <span>{money(dish.price)}</span>
       </div>
       <p>{dish.description}</p>
-      <span className="nepali dish-nepali" lang="ne">
-        {dish.nepali}
-      </span>
     </article>
   );
 }

@@ -1090,7 +1090,7 @@ dialog::backdrop {
   font-size: 11px;
   outline-offset: 0;
 }
-.vegetarian-filter {
+.menu-section-select {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1100,11 +1100,27 @@ dialog::backdrop {
   padding: 10px 13px;
   font-size: 10px;
   color: var(--forest);
+  max-width: 100%;
 }
-.vegetarian-filter.active {
-  background: var(--forest);
-  border-color: var(--forest);
-  color: var(--ivory);
+.menu-section-select select {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  max-width: 100%;
+  font-size: 11px;
+  min-height: 24px;
+}
+.menu-browser {
+  min-width: 0;
+}
+.menu-item-category {
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 100%;
+}
+.menu-item-top h3 {
+  overflow-wrap: anywhere;
 }
 .menu-results-label {
   display: flex;

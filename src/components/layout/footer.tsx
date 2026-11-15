@@ -60,7 +60,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <p>© {new Date().getFullYear()} Palpasa Cafe.</p>
-        <p>Website preview · Sample menu & illustrative imagery.</p>
+        <p>Website preview · Illustrative imagery.</p>
         <span>
           CRAFTED WITH A LITTLE NEPALI SOUL <span className="gold">✦</span>
         </span>

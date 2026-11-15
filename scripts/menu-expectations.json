@@ -1,0 +1,79 @@
+{
+  "Featured Items": [
+    ["Ham, Cheese and Tomato Croissant", "10.00"],
+    ["Egg Fried Rice", "13.00"]
+  ],
+  "Extras": [
+    ["Biscoff Croissant", "9.00"],
+    ["Chocolate Croissant", "9.00"],
+    ["Cheese and Tomato Croissant", "8.50"],
+    ["Ham and Cheese Croissant", "9.00"],
+    ["Ham, Cheese and Tomato Croissant", "10.00"],
+    ["Plain Croissant", "7.50"],
+    ["Nutella Croissant", "10.00"]
+  ],
+  "Hot Coffee": [
+    ["Latte", "4.50"],
+    ["Espresso", "3.50"],
+    ["Piccolo Latte", "4.00"],
+    ["Long Black", "4.50"],
+    ["Mocha", "5.00"],
+    ["Chai Latte", "5.00"],
+    ["Hot Chocolate", "5.00"],
+    ["Babychino", "2.00"],
+    ["Double Espresso", "4.00"],
+    ["Macchiato", "4.00"]
+  ],
+  "Premium Tea": [
+    ["English Breakfast Tea", "4.50"],
+    ["Peppermint Tea", "4.50"],
+    ["Chamomile Tea", "4.50"],
+    ["Lemongrass & Ginger Tea", "4.50"],
+    ["Sticky Chai Tea", "5.50"],
+    ["Earl Grey", "4.50"],
+    ["Green Tea", "4.50"]
+  ],
+  "Iced Coffee & Cold Drinks": [
+    ["Iced Latte", "6.00"],
+    ["Iced Chocolate", "6.00"],
+    ["Iced Chai Latte", "6.00"],
+    ["Affogato", "7.00"],
+    ["Coffee Frappe", "8.00"],
+    ["Mocha Frappe", "8.00"],
+    ["Vanilla Frappe", "8.00"],
+    ["Caramel Frappe", "8.00"],
+    ["Iced Long Black", "6.00"],
+    ["Iced Mocha", "6.00"]
+  ],
+  "Fresh Juices": [
+    ["Orange Juice", "10.00"],
+    ["Apple, Carrot & Ginger", "10.00"],
+    ["Orange, Apple & Mint", "10.00"],
+    ["Green Detox", "10.00"],
+    ["Apple Juice", "10.00"],
+    ["Carrot & Orange Juice", "10.00"]
+  ],
+  "Smoothies": [
+    ["Protein Smoothie", "10.00"],
+    ["Mix Berries Smoothie", "9.00"],
+    ["Tropical Smoothie", "10.00"],
+    ["Peanut Butter Banana Smoothie", "10.00"],
+    ["Strawberry Smoothie", "9.00"],
+    ["Banana Smoothie", "9.00"]
+  ],
+  "Milkshakes": [
+    ["Chocolate", "8.00"],
+    ["Caramel", "8.00"],
+    ["Banana", "8.00"],
+    ["Vanilla", "8.00"],
+    ["Strawberry", "8.00"]
+  ],
+  "Lunch": [
+    ["Egg Fried Rice", "13.00"],
+    ["Nepalese Chicken Curry", "13.50"],
+    ["Nepalese Chicken Curry with Rice or Naan (half)", "14.50"],
+    ["Nepalese Chicken Curry with Rice or Naan (full)", "19.50"],
+    ["Daal Gravy", "12.50"],
+    ["Rajma Curry", "13.00"]
+  ]
+}

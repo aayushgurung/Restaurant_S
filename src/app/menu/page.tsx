@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Our menu",
   description:
-    "Explore Nepali momo, thali, comforting mains and house masala chiya. Filter the sample Palpasa Cafe menu by dish or dietary preference.",
+    "Explore Palpasa Cafe’s croissants, hot coffee, premium tea, cold drinks, fresh juices, smoothies, milkshakes and Nepalese lunch dishes, with prices in Australian dollars.",
 };
 export default function MenuPage() {
   return (
@@ -14,10 +14,10 @@ export default function MenuPage() {
         eyebrow="HONEST FOOD. HAPPY HEARTS."
         title={
           <>
-            A taste of <em>Nepal.</em>
+            Your cafe <em>favourites.</em>
           </>
         }
-        description="From our favourite street-side bites to the plates we grew up sharing. Find a little something that feels like home."
+        description="A croissant with your coffee, a fresh juice, or a comforting Nepalese lunch. Explore the Palpasa Cafe menu, from your first sip to your last bite."
       />
       <section className="container menu-page">
         <MenuBrowser />

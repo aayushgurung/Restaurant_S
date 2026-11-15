@@ -1,0 +1,64 @@
+{
+  "croissant-savoury": {
+    "photo": "1696721496956-748e023b7a62",
+    "subject": "Ham, cheese and tomato croissant sandwich"
+  },
+  "croissant-cheese": {
+    "photo": "1639667852145-466e29aa49fd",
+    "subject": "Cheese and tomato croissant sandwich"
+  },
+  "croissant": {
+    "photo": "1555507036-ab1f4038808a",
+    "subject": "Golden croissants"
+  },
+  "chocolate-croissant": {
+    "photo": "1530610476181-d83430b64dcd",
+    "subject": "Chocolate pastries and croissants"
+  },
+  "latte": {
+    "photo": "1509042239860-f550ce710b93",
+    "subject": "Freshly brewed coffee"
+  },
+  "espresso": {
+    "photo": "1514432324607-a09d9b4aefdd",
+    "subject": "Espresso coffee"
+  },
+  "iced-coffee": {
+    "photo": "1461023058943-07fcbe16d735",
+    "subject": "Iced coffee"
+  },
+  "juice": {
+    "photo": "1600271886742-f049cd451bba",
+    "subject": "Fresh orange juice"
+  },
+  "smoothie": {
+    "photo": "1505252585461-04db1eb84625",
+    "subject": "Fruit smoothie"
+  },
+  "milkshake": {
+    "photo": "1572490122747-3968b75cc699",
+    "subject": "Milkshake"
+  },
+  "fried-rice": {
+    "photo": "1603133872878-684f208fb84b",
+    "subject": "Egg fried rice"
+  },
+  "chicken-curry": {
+    "photo": "1603894584373-5ac82b2ae398",
+    "subject": "Chicken curry"
+  },
+  "dal": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gujarati%20Dal..JPG",
+    "subject": "Lentil dal gravy",
+    "credit": "Miansari66 / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Gujarati_Dal..JPG",
+    "license": "CC0 1.0"
+  },
+  "rajma": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rajma..JPG",
+    "subject": "Kidney bean curry",
+    "credit": "Miansari66 / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Rajma..JPG",
+    "license": "CC0 1.0"
+  }
+}

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { MenuBrowser } from "@/components/menu/menu-browser";
 import { useCart } from "@/components/providers/cart-provider";
-import { dishes, money } from "@/lib/menu";
+import { dishes, money, itemLabel } from "@/lib/menu";
 import { site } from "@/config/site";
 
 export function OrderInterface() {
@@ -90,7 +90,7 @@ export function OrderInterface() {
                 <p>
                   Good things come to those
                   <br />
-                  who add momo.
+                  who add a favourite.
                 </p>
               </div>
             ) : (
@@ -100,13 +100,13 @@ export function OrderInterface() {
                   return (
                     <li key={line.id}>
                       <div className="cart-item-title">
-                        <h3>{dish.name}</h3>
+                        <h3>{itemLabel(dish)}</h3>
                         <span>{money(dish.price * line.quantity)}</span>
                       </div>
                       <div className="quantity-control">
                         <button
                           onClick={() => change(line.id, -1)}
-                          aria-label={`Remove one ${dish.name}`}
+                          aria-label={`Remove one ${itemLabel(dish)}`}
                         >
                           <Minus size={13} />
                         </button>
@@ -116,7 +116,7 @@ export function OrderInterface() {
                         <button
                           onClick={() => change(line.id, 1)}
                           disabled={line.quantity >= 99}
-                          aria-label={`Add one ${dish.name}`}
+                          aria-label={`Add one ${itemLabel(dish)}`}
                         >
                           <Plus size={13} />
                         </button>
@@ -156,7 +156,7 @@ export function OrderInterface() {
             <p className="cart-footnote">
               Made with care. Packed with love.
               <br />
-              Sample prices include GST.
+              Prices in Australian dollars.
             </p>
           </aside>
         </div>

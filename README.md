@@ -55,7 +55,7 @@ scripts/
 
 Home, Menu, Our Story, Online Ordering, Table Reservation, Gallery, Catering & Events, Contact & Location.
 
-- Category, search and vegetarian filters with an empty state
+- Category tabs, a section dropdown and ingredient/name search with an empty state
 - Shared cart, quantity controls, exact integer-cent totals and persistent items
 - Pick-up/delivery selection, sample delivery fee and validated demo checkout
 - Reservation dates and past-time validation in the Australia/Sydney timezone
@@ -67,7 +67,9 @@ Home, Menu, Our Story, Online Ordering, Table Reservation, Gallery, Catering & E
 
 **No orders, payments, bookings or messages are sent.** Forms validate in the browser and show clearly labelled demo results. Personal form details remain in component memory; only dish IDs and quantities are saved in localStorage. There is no backend, email service, payment integration or ordering-provider integration.
 
-The website is for **Palpasa Cafe, 27 Hunter St, Parramatta NSW 2150**, as supplied by the owner. The contact map, directions, footer and pick-up location use this address. Prices, packages, opening hours, email, team copy and food photography remain illustrative. No business phone number or real email address has been invented. Replace the remaining sample details in `src/config/site.ts`, `src/lib/menu.ts` and the relevant pages before launch.
+The website is for **Palpasa Cafe, 27 Hunter St, Parramatta NSW 2150**, as supplied by the owner. The contact map, directions, footer and pick-up location use this address. The menu in `src/lib/menu.ts` contains the owner's 57 distinct products across nine sections, including two Featured Items that also appear in Extras/Lunch. Prices are exactly the supplied AUD prices, stored as integer cents. Featured listings share product IDs with their regular sections. Half/full curry portions have separate prices; milkshake flavours remain unambiguous in the cart. No dietary labels have been inferred.
+
+Catering packages, opening hours, email, team copy and photography remain illustrative. No business phone number or real email address has been invented. Replace the remaining sample details in `src/config/site.ts` and the relevant pages before launch. Checkout, payments and reservations remain demo experiences.
 
 The existing layout, colours, fonts, animations and interactions are preserved. Public searches found the matching [Palpasa Cafe listing](https://www.ubereats.com/au/store/palpasa-cafe-and-restro-parramatta/kZN5HwoFSuaFQVH1N45M_w), but downloadable photographs of the Parramatta cafe could not be verified. Existing placeholder photos remain in use; photographs of similarly named cafes in Nepal have not been substituted. The existing hosting URL and legacy cart storage key are retained for continuity.
 
@@ -87,13 +89,17 @@ In another terminal:
 npm run test:ui
 ```
 
-The checks cover all eight routes, menu filtering, persistent cart quantities/totals, delivery checkout, three form flows, gallery filtering/keyboard controls, mobile navigation, reduced motion and overflow at 375, 768, 1024 and 1440 pixels. Screenshots are saved to ignored `artifacts/`. Set `TEST_URL` to test another local server.
+The checks verify every name and price against the independently transcribed owner menu in `scripts/menu-expectations.json`: 57 unique products and 59 entries including Featured Items. They also cover shared featured cart lines, half/full curry prices, ingredient search, milkshake labels, retired sample-cart cleanup, all eight routes, persistent cart quantities/totals, delivery checkout, three form flows, gallery controls, mobile navigation, reduced motion and overflow at 375, 768, 1024 and 1440 pixels. Screenshots are saved to ignored `artifacts/`. Set `TEST_URL` to test another local server.
 
 The `postbuild` step corrects a Windows-specific filename issue in Next.js 16.4's static exporter. It copies generated navigation segment payloads to the flat filenames requested by the browser. Payload contents remain unchanged; Linux builds need no corrections. Browser checks also reject failed local resource and prefetch requests.
 
 ## Image and design credits
 
 Photography is downloaded from Unsplash and stored locally as optimized WebP assets. Placeholder image sources:
+
+The cafe menu uses matching illustrative croissant, coffee, iced drink, juice, smoothie, milkshake, fried rice and curry photos. Sources are recorded in `scripts/menu-images.json`; run `node scripts/download-menu-images.mjs` to restore missing assets, or pass asset names to refresh those files. Originals are retained under `assets/source-images/menu/` and optimized WebP files under `public/images/menu/`.
+
+Dal and rajma photography by Miansari66 is from [Gujarati Dal](https://commons.wikimedia.org/wiki/File:Gujarati_Dal..JPG) and [Rajma](https://commons.wikimedia.org/wiki/File:Rajma..JPG), released under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). These images have been resized and converted to WebP. Stock photos illustrate dish/drink types; exact ingredients, garnish and presentation may differ from the cafe's servings.
 
 - [Momo platter source](https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9)
 - [Kabita Darlami — steamed momo](https://unsplash.com/photos/90SXZzJpySc)

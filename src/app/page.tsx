@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { MountainMark, Mountains } from "@/components/ui/mountains";
 import { DishCard } from "@/components/menu/dish-card";
-import { dishes } from "@/lib/menu";
+import { homeDishes } from "@/lib/menu";
 
 export default function Home() {
   return (
@@ -50,7 +50,7 @@ export default function Home() {
           />
         </Reveal>
         <div className="signature-grid">
-          {[dishes[0], dishes[3], dishes[5]].map((dish, index) => (
+          {homeDishes.map((dish, index) => (
             <Reveal key={dish.id} delay={index * 0.09}>
               <DishCard dish={dish} index={index} />
             </Reveal>
@@ -107,9 +107,9 @@ export default function Home() {
             up a chair and make room for one more.
           </p>
           <p>
-            That’s the spirit behind Palpasa Cafe. Recipes inspired by home, spices
-            that tell a story, and the kind of welcome that stays with you long
-            after the last bite.
+            That’s the spirit behind Palpasa Cafe. Recipes inspired by home,
+            spices that tell a story, and the kind of welcome that stays with
+            you long after the last bite.
           </p>
           <span className="nepali story-nepali" lang="ne">
             हाम्रो भान्छाबाट, तपाईंको टेबलसम्म।
