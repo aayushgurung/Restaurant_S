@@ -14,6 +14,7 @@ import {
 import { MenuBrowser } from "@/components/menu/menu-browser";
 import { useCart } from "@/components/providers/cart-provider";
 import { dishes, money } from "@/lib/menu";
+import { site } from "@/config/site";
 
 export function OrderInterface() {
   const { items, subtotal, count, change, clear } = useCart();
@@ -185,7 +186,7 @@ export function OrderInterface() {
             </p>
             <p>
               No order has been sent and no payment has been taken. We hope you
-              enjoyed a little taste of Shaswat.
+              enjoyed a little taste of Palpasa Cafe.
             </p>
             <button
               className="button button--primary"
@@ -206,8 +207,8 @@ export function OrderInterface() {
             </h2>
             <p className="dialog-description">
               {method === "pickup"
-                ? "Pick up from Shaswat · sample location, Sydney"
-                : "Delivery · sample Sydney service area"}
+                ? `Pick up from ${site.name} · ${site.address}`
+                : "Delivery · sample Parramatta service area"}
             </p>
             <form onSubmit={complete} className="form-grid">
               <label className="form-field full">

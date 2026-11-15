@@ -6,7 +6,7 @@ import { InquiryForm } from "@/components/forms/inquiry-form";
 export const metadata: Metadata = {
   title: "Catering & events",
   description:
-    "Gather your people around the flavours of Nepal. Explore sample Shaswat catering packages and event enquiries.",
+    "Gather your people around the flavours of Nepal. Explore sample Palpasa Cafe catering packages and event enquiries.",
 };
 const packages = [
   {

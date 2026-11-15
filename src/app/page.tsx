@@ -107,7 +107,7 @@ export default function Home() {
             up a chair and make room for one more.
           </p>
           <p>
-            That’s the spirit behind Shaswat. Recipes inspired by home, spices
+            That’s the spirit behind Palpasa Cafe. Recipes inspired by home, spices
             that tell a story, and the kind of welcome that stays with you long
             after the last bite.
           </p>

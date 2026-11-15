@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Our menu",
   description:
-    "Explore Nepali momo, thali, comforting mains and house masala chiya. Filter the sample Shaswat menu by dish or dietary preference.",
+    "Explore Nepali momo, thali, comforting mains and house masala chiya. Filter the sample Palpasa Cafe menu by dish or dietary preference.",
 };
 export default function MenuPage() {
   return (

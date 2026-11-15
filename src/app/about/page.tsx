@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/reveal";
 export const metadata: Metadata = {
   title: "Our story",
   description:
-    "Meet the spirit behind Shaswat: Nepali heritage, food made with care and hospitality that makes everyone feel at home.",
+    "Meet the spirit behind Palpasa Cafe: Nepali heritage, food made with care and hospitality that makes everyone feel at home.",
 };
 export default function AboutPage() {
   return (
@@ -47,17 +47,17 @@ export default function AboutPage() {
         <Reveal className="story-copy">
           <p className="eyebrow">
             <span />
-            THE SHASWAT SPIRIT
+            THE PALPASA SPIRIT
           </p>
           <h2>
-            A name that means eternal.
+            A little Nepal in Parramatta.
             <br />
             <em>A feeling that stays.</em>
           </h2>
           <p>
-            Shaswat takes its name from the Nepali word for everlasting. It’s a
-            reminder that the simplest things — a shared meal, a familiar
-            flavour, a heartfelt welcome — often leave the longest impression.
+            Find Palpasa Cafe at 27 Hunter St, Parramatta NSW 2150. A shared
+            meal, a familiar flavour and a heartfelt welcome are the simple
+            pleasures that inspire this little taste of Nepal.
           </p>
           <p>
             Our concept brings those feelings to the table. A little of the
@@ -121,7 +121,7 @@ export default function AboutPage() {
               Many hands. <em>One heart.</em>
             </>
           }
-          description="A preview of the people and stories we’ll share as Shaswat comes to life."
+          description="A preview of the people and stories behind Palpasa Cafe."
         />
         <div className="team-grid">
           {[

@@ -7,7 +7,7 @@ import { site } from "@/config/site";
 export const metadata: Metadata = {
   title: "Contact & location",
   description:
-    "Find your way to a little Nepal. Sample opening hours, location and contact information for Shaswat Nepali Kitchen.",
+    "Visit Palpasa Cafe at 27 Hunter St, Parramatta NSW 2150. Find our location, directions and contact form.",
 };
 export default function ContactPage() {
   return (
@@ -27,22 +27,22 @@ export default function ContactPage() {
             <MapPin size={25} strokeWidth={1.3} />
             <p className="eyebrow">FIND YOUR WAY TO US</p>
             <h2>
-              Your neighbourhood.
+              Your Parramatta cafe.
               <br />
               <em>A taste of Nepal.</em>
             </h2>
             <p>
               {site.address}
               <br />
-              Location to be announced.
+              Parramatta, Australia.
             </p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Sydney+NSW+Australia"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Palpasa Cafe, ${site.address}`)}`}
               target="_blank"
               rel="noreferrer"
               className="button button--text"
             >
-              Explore the Sydney area
+              Get directions to Palpasa Cafe
               <ArrowUpRight size={17} />
             </a>
           </div>
@@ -58,15 +58,15 @@ export default function ContactPage() {
         </div>
         <div className="contact-map">
           <iframe
-            src="https://maps.google.com/maps?q=Sydney%20NSW%20Australia&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            title="Sydney area map — illustrative location, restaurant address to be confirmed"
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(site.address)}&z=17&output=embed`}
+            title="Palpasa Cafe — 27 Hunter St, Parramatta NSW 2150"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
           />
           <div>
             <MapPin size={17} />
-            Sydney, Australia<span>Sample area map</span>
+            Palpasa Cafe<span>{site.address}</span>
           </div>
         </div>
       </section>

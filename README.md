@@ -1,4 +1,4 @@
-# Shaswat Nepali Kitchen
+# Palpasa Cafe
 
 A responsive restaurant UI built from the supplied eight-page wireframe. The visual direction combines modern ivory and burgundy layouts with restrained Himalayan illustrations, Dhaka-inspired borders and Nepali typography.
 
@@ -7,7 +7,7 @@ A responsive restaurant UI built from the supplied eight-page wireframe. The vis
 Requires Node.js 20.9 or newer. Developed with Node 24.
 
 ```sh
-cd shaswat
+cd "Restaurant website"
 npm install
 npm run dev
 ```
@@ -67,7 +67,9 @@ Home, Menu, Our Story, Online Ordering, Table Reservation, Gallery, Catering & E
 
 **No orders, payments, bookings or messages are sent.** Forms validate in the browser and show clearly labelled demo results. Personal form details remain in component memory; only dish IDs and quantities are saved in localStorage. There is no backend, email service, payment integration or ordering-provider integration.
 
-Shaswat is a placeholder identity based on the workspace name. Prices, packages, opening hours, email, location, team copy and food photography are illustrative. No business phone number or exact street address has been invented. The map shows the Sydney area. Replace these details in `src/config/site.ts`, `src/lib/menu.ts` and the relevant pages before launch.
+The website is for **Palpasa Cafe, 27 Hunter St, Parramatta NSW 2150**, as supplied by the owner. The contact map, directions, footer and pick-up location use this address. Prices, packages, opening hours, email, team copy and food photography remain illustrative. No business phone number or real email address has been invented. Replace the remaining sample details in `src/config/site.ts`, `src/lib/menu.ts` and the relevant pages before launch.
+
+The existing layout, colours, fonts, animations and interactions are preserved. Public searches found the matching [Palpasa Cafe listing](https://www.ubereats.com/au/store/palpasa-cafe-and-restro-parramatta/kZN5HwoFSuaFQVH1N45M_w), but downloadable photographs of the Parramatta cafe could not be verified. Existing placeholder photos remain in use; photographs of similarly named cafes in Nepal have not been substituted. The existing hosting URL and legacy cart storage key are retained for continuity.
 
 Page titles, descriptions, Open Graph metadata and a sitemap are included. Search indexing is deliberately disabled while the site contains placeholder business information. At launch, update the production URL, enable indexing in `layout.tsx`, and change `robots.ts` to allow crawling.
 

@@ -8,7 +8,7 @@ import { OpeningHours } from "@/components/ui/opening-hours";
 export const metadata: Metadata = {
   title: "Book a table",
   description:
-    "Make yourself at home at Shaswat. Try our table reservation form for your next Nepali dining experience.",
+    "Make yourself at home at Palpasa Cafe. Try our table reservation form for your next Nepali dining experience.",
 };
 export default function ReservationPage() {
   return (

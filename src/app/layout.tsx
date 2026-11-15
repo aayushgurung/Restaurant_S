@@ -8,22 +8,22 @@ import { inter, cormorant, devanagari } from "./fonts";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Shaswat Nepali Kitchen — A little Nepal. A lot of heart.",
-    template: "%s | Shaswat Nepali Kitchen",
+    default: "Palpasa Cafe — A little Nepal. A lot of heart.",
+    template: "%s | Palpasa Cafe",
   },
   description: site.description,
   openGraph: {
     type: "website",
     locale: "en_AU",
     siteName: site.name,
-    title: "Shaswat Nepali Kitchen",
+    title: "Palpasa Cafe",
     description: site.description,
     images: [
       {
         url: "/images/hero.webp",
         width: 1920,
         height: 1280,
-        alt: "Nepali momo at Shaswat",
+        alt: "Nepali momo at Palpasa Cafe",
       },
     ],
   },

@@ -19,10 +19,10 @@ export function Header() {
       </div>
       <header className="site-header">
         <div className="container header-inner">
-          <Link href="/" className="brand" aria-label="Shaswat home">
+          <Link href="/" className="brand" aria-label="Palpasa Cafe home">
             <MountainMark />
             <span>
-              shaswat<small>NEPALI KITCHEN</small>
+              palpasa<small>CAFE</small>
             </span>
           </Link>
           <nav className="desktop-nav" aria-label="Main navigation">
@@ -61,7 +61,7 @@ export function Header() {
       </header>
       <dialog className="mobile-menu" ref={dialog} aria-label="Navigation">
         <div className="mobile-menu-top">
-          <span className="brand-word">shaswat</span>
+          <span className="brand-word">palpasa</span>
           <button
             className="icon-button"
             aria-label="Close navigation"

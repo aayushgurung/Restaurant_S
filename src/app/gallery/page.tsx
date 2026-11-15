@@ -4,7 +4,7 @@ import { GalleryGrid } from "@/components/gallery/gallery-grid";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Explore a visual taste of Shaswat. Food, spaces and the little moments that bring us together.",
+    "Explore a visual taste of Palpasa Cafe. Food, spaces and the little moments that bring us together.",
 };
 export default function GalleryPage() {
   return (

@@ -4,7 +4,7 @@ import { OrderInterface } from "@/components/ordering/order-interface";
 export const metadata: Metadata = {
   title: "Order online",
   description:
-    "Bring a little Nepal home. Explore Shaswat’s interactive demo ordering experience for pick-up or delivery.",
+    "Bring a little Nepal home. Explore Palpasa Cafe’s interactive demo ordering experience for pick-up or delivery.",
 };
 export default function OrderPage() {
   return (

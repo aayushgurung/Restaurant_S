@@ -10,7 +10,7 @@ export default function NotFound() {
         <em>way home.</em>
       </h1>
       <p>This page seems to have wandered into the mountains.</p>
-      <ButtonLink href="/">Back to Shaswat</ButtonLink>
+      <ButtonLink href="/">Back to Palpasa Cafe</ButtonLink>
       <Mountains />
     </section>
   );

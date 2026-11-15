@@ -11,7 +11,7 @@ export function Footer() {
           <Link href="/" className="brand">
             <MountainMark />
             <span>
-              shaswat<small>NEPALI KITCHEN</small>
+              palpasa<small>CAFE</small>
             </span>
           </Link>
           <p>
@@ -34,7 +34,7 @@ export function Footer() {
           </Link>
         </div>
         <div>
-          <h3>Make an evening of it</h3>
+          <h3>Sample opening hours</h3>
           <p>
             Mon – Thu & Sun · 12 pm – 9:30 pm
             <br />
@@ -59,8 +59,8 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <p>© {new Date().getFullYear()} Shaswat Nepali Kitchen.</p>
-        <p>Concept website · Sample menu, imagery & location.</p>
+        <p>© {new Date().getFullYear()} Palpasa Cafe.</p>
+        <p>Website preview · Sample menu & illustrative imagery.</p>
         <span>
           CRAFTED WITH A LITTLE NEPALI SOUL <span className="gold">✦</span>
         </span>
