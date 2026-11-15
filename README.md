@@ -48,6 +48,7 @@ public/
 scripts/
   check-ui.mjs         Browser verification of routes and key user journeys
   optimize-images.mjs  Source image optimization helper
+  normalize-export.mjs Windows static-export navigation filename correction
 ```
 
 ## Pages and interactions
@@ -85,6 +86,8 @@ npm run test:ui
 ```
 
 The checks cover all eight routes, menu filtering, persistent cart quantities/totals, delivery checkout, three form flows, gallery filtering/keyboard controls, mobile navigation, reduced motion and overflow at 375, 768, 1024 and 1440 pixels. Screenshots are saved to ignored `artifacts/`. Set `TEST_URL` to test another local server.
+
+The `postbuild` step corrects a Windows-specific filename issue in Next.js 16.4's static exporter. It copies generated navigation segment payloads to the flat filenames requested by the browser. Payload contents remain unchanged; Linux builds need no corrections. Browser checks also reject failed local resource and prefetch requests.
 
 ## Image and design credits
 

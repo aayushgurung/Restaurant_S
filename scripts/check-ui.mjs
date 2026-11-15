@@ -5,7 +5,12 @@ const base = process.env.TEST_URL || "http://127.0.0.1:3000";
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
 const errors = [];
+const failedLocalRequests = [];
 page.on("pageerror", (error) => errors.push(error.message));
+page.on("response", (response) => {
+  if (response.url().startsWith(base + "/") && response.status() >= 400)
+    failedLocalRequests.push(`${response.status()} ${new URL(response.url()).pathname}`);
+});
 await mkdir("artifacts", { recursive: true });
 try {
   for (const route of [
@@ -191,7 +196,9 @@ try {
     ),
     "auto",
   );
+  await page.waitForLoadState("networkidle");
   assert.deepEqual(errors, [], "No uncaught browser errors");
+  assert.deepEqual(failedLocalRequests, [], "No failed local requests, including navigation prefetches");
   console.log(
     "PASS: 8 routes, menu filters/search, persistent cart, quantity/totals, delivery checkout, 3 forms, gallery keyboard/lightbox, mobile navigation, 4 viewport sizes, reduced motion.",
   );
